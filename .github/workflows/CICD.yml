@@ -1,0 +1,34 @@
+name: deploy node app
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-and-publish:
+        name: Build and Publish Docker Image
+        runs-on: ubuntu:latest
+        steps:
+            - name: checkout source
+              uses: actions/checkout@v4
+            - name: Build the docker image
+              run: docker build . --file Dockerfile --tag uyadav585/nodejs-app:${{ github.sha }}
+
+            - name: Publish to Registry
+              uses: elgohr/Publish-Docker-Github-Action@v4
+              with:
+                name: uyadav585/ci-cd
+                username: ${{ secrets.DOCKERHUB_USERNAME }}
+                password: ${{ secrets.DOCKERHUB_TOKEN }}
+                tags: "latest,${{ github.sha }}"
+
+
+    deploy:
+        needs: build-and-publish
+        runs-on: self-hosted
+        steps:
+          - name: pull image from dockerhub
+            run: docker pull uyadav585/nodejs-app:${{ github.sha }}
+          - name: run docker container
+            run: docker run -d -p 4000:4000 --name nodejs-app-container -e MONGO_TOKEN='${{ secrets.DOCKERHUB_TOKEN }}' uyadav585/nodejs-app:${{ github.sha }}
