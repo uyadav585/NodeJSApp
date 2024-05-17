@@ -2,13 +2,12 @@ name: deploy node app
 
 on:
     push:
-        branches:
-            - main
+        branches: [main]
 
 jobs:
     build-and-publish:
         name: Build and Publish Docker Image
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         steps:
             - name: checkout source
               uses: actions/checkout@v3
