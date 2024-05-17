@@ -17,7 +17,7 @@ jobs:
             - name: Publish to Registry
               uses: elgohr/Publish-Docker-Github-Action@v4
               with:
-                name: uyadav585/ci-cd
+                name: uyadav585/nodejs-app
                 username: ${{ secrets.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
                 tags: "latest,${{ github.sha }}"
