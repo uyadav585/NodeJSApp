@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu:latest
         steps:
             - name: checkout source
-              uses: actions/checkout@v4
+              uses: actions/checkout@v3
             - name: Build the docker image
               run: docker build . --file Dockerfile --tag uyadav585/nodejs-app:${{ github.sha }}
 
