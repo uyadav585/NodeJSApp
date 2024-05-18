@@ -27,6 +27,8 @@ jobs:
         needs: build-and-publish
         runs-on: self-hosted
         steps:
+          - name: Ensure Docker socket permissions
+            run: sudo chmod 666 /var/run/docker.sock
           - name: clean up waste docker images
             run : docker rmi -f $(docker images -q)
           - name: pull image from dockerhub
