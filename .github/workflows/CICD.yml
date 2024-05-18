@@ -28,7 +28,8 @@ jobs:
         runs-on: self-hosted
         steps:
           - name: pull image from dockerhub
+          
             run: sudo docker pull uyadav585/nodejs-app:${{ github.sha }}
           - name: run docker container
-            run: sudo docker run -d -p 4000:4000 --name nodejs-app-container -e MONGO_TOKEN='${{ secrets.DOCKERHUB_TOKEN }}' uyadav585/nodejs-app:${{ github.sha }}
+            run: sudo docker run -d -p 4000:4000 --name nodejs-app-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' uyadav585/nodejs-app:${{ github.sha }}
 # lets see what happens
