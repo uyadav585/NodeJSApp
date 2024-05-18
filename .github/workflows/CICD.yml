@@ -28,7 +28,9 @@ jobs:
         runs-on: self-hosted
         steps:
           - name: Ensure Docker socket permissions
-            run: sudo chmod 666 /var/run/docker.sock
+            run:  sudo chmod 666 /var/run/docker.sock
+          - name: remove running container
+            run:  docker rm -f nodejs-app-container
           - name: clean up waste docker images
             run : docker rmi -f $(docker images -q)
           - name: pull image from dockerhub
