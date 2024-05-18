@@ -27,10 +27,10 @@ jobs:
         needs: build-and-publish
         runs-on: self-hosted
         steps:
-          - name: clean up waste docker images
-            run : docker rm -vf $(sudo docker ps -aq)
           - name: pull image from dockerhub
             run:  docker pull uyadav585/nodejs-app:${{ github.sha }}
           - name: run docker container
             run:  docker run -d -p 4000:4000 --name nodejs-app-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' uyadav585/nodejs-app:${{ github.sha }}
+          - name: clean up waste docker images
+            run : docker rm -vf $(sudo docker ps -aq)
 # lets see what happens
