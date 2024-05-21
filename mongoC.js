@@ -13,5 +13,3 @@ try {
 }
 let db = conn.db("IPL-Points-Table");
 export default db;
-
-# ytdytd
