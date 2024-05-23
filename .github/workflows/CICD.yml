@@ -34,7 +34,7 @@ jobs:
 #          - name: clean up waste docker images
 #            run : docker rmi -f $(docker images -q)
           -  name: remove running container
-             run:  docker rm -f reactjs-app-container || true
+             run:  docker rm -f nodejs-app-container || true
 
           - name: List image IDs of running containers
             run : docker ps --format '{{.Image}}' | sort | uniq > running_images.txt            
