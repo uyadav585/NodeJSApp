@@ -17,7 +17,9 @@ export default db; */
 
 
 import { MongoClient } from "mongodb";
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 if (!process.env.MONGO_PASSWORD) {
     console.error('Error: MONGO_PASSWORD is not set in the environment variables.');
