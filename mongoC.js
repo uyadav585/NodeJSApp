@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
-import dotenv from 'dotenv';
+/*import dotenv from 'dotenv';
 
 dotenv.config();
-
+*/
 
 const password = encodeURIComponent(process.env.MONGO_PASSWORD.trim());
 console.log(password);
