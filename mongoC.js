@@ -17,6 +17,12 @@ export default db; */
 
 
 import { MongoClient } from "mongodb";
+require('dotenv').config();
+
+if (!process.env.MONGO_PASSWORD) {
+    console.error('Error: MONGO_PASSWORD is not set in the environment variables.');
+    process.exit(1); // Exit the application with an error code
+}
 
 const password = encodeURIComponent(process.env.MONGO_PASSWORD.trim());
 const connectionString = `mongodb+srv://vk9338530:${password}@cluster0.8yfkcl6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
