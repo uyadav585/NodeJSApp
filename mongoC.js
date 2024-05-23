@@ -1,4 +1,7 @@
-/*import { MongoClient } from "mongodb";
+import { MongoClient } from "mongodb";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 
 const password = encodeURIComponent(process.env.MONGO_PASSWORD.trim());
@@ -13,10 +16,10 @@ try {
   console.error(e);
 }
 let db = conn.db("IPL-Points-Table");
-export default db; */
+export default db;
 
 
-import { MongoClient } from "mongodb";
+/* import { MongoClient } from "mongodb";
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -52,3 +55,4 @@ const getDB = () => {
 };
 
 export { connectDB, getDB };
+*/
