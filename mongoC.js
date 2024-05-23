@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 /*import dotenv from 'dotenv';
-   will add soon
+   will add soon no see
 dotenv.config();
 */
 
