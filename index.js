@@ -52,6 +52,9 @@ import { connectDB, getDB } from './mongoC.js';  // Import the connectDB and get
 const port = 4000;
 const app = express();
 
+var cors = require('cors');
+app.use(cors());
+
 app.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
