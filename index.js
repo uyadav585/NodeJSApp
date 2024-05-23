@@ -48,7 +48,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { connectDB, getDB } from './mongoC.js';  // Import the connectDB and getDB functions
 
-
+require('dotenv').config();
 const port = 4000;
 const app = express();
 
