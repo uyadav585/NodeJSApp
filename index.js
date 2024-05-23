@@ -50,7 +50,7 @@ import { connectDB, getDB } from './mongoC.js';  // Import the connectDB and get
 import cors from 'cors';
 
 
-const port = 4000;
+const port = 3000;
 const app = express();
 
 app.use(cors());
