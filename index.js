@@ -47,13 +47,14 @@ app.listen(port, function () {
 import express from 'express';
 import bodyParser from 'body-parser';
 import { connectDB, getDB } from './mongoC.js';  // Import the connectDB and getDB functions
+import cors from 'cors';
 
 
 const port = 4000;
 const app = express();
 
-var cors = require('cors');
 app.use(cors());
+
 
 app.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
