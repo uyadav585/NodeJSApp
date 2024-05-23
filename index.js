@@ -1,4 +1,4 @@
-/* import express from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 
 import db from "./mongoC.js";
@@ -42,15 +42,15 @@ app.get('/getUsers', async(req, res) => {
 
 app.listen(port, function () {
     console.log("Server is listening at port:" + port);
-}); */
+});
 
-import express from 'express';
+/* import express from 'express';
 import bodyParser from 'body-parser';
 import { connectDB, getDB } from './mongoC.js';  // Import the connectDB and getDB functions
 import cors from 'cors';
 
 
-const port = 3000;
+const port = 4000;
 const app = express();
 
 app.use(cors());
@@ -72,7 +72,7 @@ app.use(bodyParser.json());
     res.send('Hello world, this is me Umang');
 }); */
 
-app.post('/addUser', async (req, res) => {
+/*app.post('/addUser', async (req, res) => {
     try {
         const db = getDB();
         const collection = db.collection("users");
@@ -106,6 +106,4 @@ connectDB().then(() => {
     });
 }).catch(error => {
     console.error('Failed to connect to the database. Server not started.', error);
-});
-
- 
+}); */
