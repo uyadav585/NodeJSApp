@@ -68,9 +68,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Parses the text as json
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.send('Hello world, this is me Umang');
-});
+}); */
 
 app.post('/addUser', async (req, res) => {
     try {
