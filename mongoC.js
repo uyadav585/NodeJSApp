@@ -13,12 +13,13 @@ let conn;
 try {
   conn = await client.connect();
   console.log("connection successful");
-} catch (e) {
+} 
+catch (e) {
     console.error("Failed to connect to MongoDB Atlas", e);
     process.exit(1); // Exit the process with failure
 }
 
-let db = conn.db("IPL-Points-Tabler");
+let db = conn.db("");
 export default db;
 
 
