@@ -40,6 +40,15 @@ app.get('/getUsers', async(req, res) => {
     res.send(results).status(200);
 });
 
+app.get('/testConnection', async (req, res) => {
+    try {
+        await testConnection();
+        res.status(200).send('Connection to MongoDB Atlas is successful');
+    } catch (e) {
+        res.status(500).send('Connection to MongoDB Atlas failed');
+    }
+});
+
 app.listen(port, function () {
     console.log("Server is listening at port:" + port);
 });

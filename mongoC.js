@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
-/*import dotenv from 'dotenv';
-   will add soon no see
+import dotenv from 'dotenv';
+
 dotenv.config();
-*/
+
 
 const password = encodeURIComponent(process.env.MONGO_PASSWORD.trim());
 //console.log(password);
@@ -13,9 +13,11 @@ let conn;
 try {
   conn = await client.connect();
   console.log("connection successful");
-} catch(e) {
-  console.error(e);
+} catch (e) {
+    console.error("Failed to connect to MongoDB Atlas", e);
+    process.exit(1); // Exit the process with failure
 }
+
 let db = conn.db("IPL-Points-Tabler");
 export default db;
 
