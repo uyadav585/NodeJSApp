@@ -23,7 +23,7 @@ let db = conn.db("");
 export default db;
 
 
-/* import { MongoClient } from "mongodb";
+/* import { MongoClient } from "mongodb";..................
 import dotenv from 'dotenv';
 
 dotenv.config();
