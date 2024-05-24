@@ -51,6 +51,7 @@ app.get('/testConnection', async (req, res) => {
 
 app.listen(port, function () {
     console.log("Server is listening at port:" + port);
+    console.log
 });
 
 /* import express from 'express';
