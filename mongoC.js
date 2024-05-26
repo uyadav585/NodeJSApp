@@ -1,39 +1,3 @@
-import { MongoClient, ServerApiVersion } from 'mongodb'
-
-
-//const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://vk9338530:${password}@cluster0.8yfkcl6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("IPL-Points-Table").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
-
-let db = connect.db("");
-export default db;
-
-
-
-
-
 /* import { MongoClient } from "mongodb";
 import dotenv from 'dotenv';
 
@@ -63,7 +27,7 @@ export default db;
 // both are same code just different in style
 
 
-/* import { MongoClient } from "mongodb";..................
+import { MongoClient, ServerApiVersion } from 'mongodb';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -75,21 +39,34 @@ if (!process.env.MONGO_PASSWORD) {
 
 const password = encodeURIComponent(process.env.MONGO_PASSWORD.trim());
 const connectionString = `mongodb+srv://vk9338530:${password}@cluster0.8yfkcl6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-console.log(password);
+const client = new MongoClient(connectionString, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
 
 let db;
 
 const connectDB = async () => {
     try {
-        const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+        
+          
+        //const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
         await client.connect();
         console.log("MongoDB connection successful");
         db = client.db("IPL-Points-Table");
+        console.log(db);
+        await db.command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } catch (e) {
         console.error("MongoDB connection error:", e);
         throw e;  // Re-throw the error after logging it
     }
 };
+
+connectDB().catch(console.dir);
 
 const getDB = () => {
     if (!db) {
@@ -99,4 +76,3 @@ const getDB = () => {
 };
 
 export { connectDB, getDB };
-*/
