@@ -68,11 +68,4 @@ const connectDB = async () => {
 
 connectDB().catch(console.dir);
 
-const getDB = () => {
-    if (!db) {
-        throw new Error('Database not initialized. Call connectDB first.');
-    }
-    return db;
-};
-
-export { connectDB, getDB };
+export { db };
