@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
       - name: Login to docker hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}     
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}     
       - name: Build Docker Image
         run: docker build -t uyadav585/nodejs-app  .
       - name: Publish Image to docker hub
